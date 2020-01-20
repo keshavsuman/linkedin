@@ -23,6 +23,10 @@ class Home extends CI_Controller
         $otp = random_string('numeric', 6);
         return $otp;
 	}
+	private function getyear($enroll)
+	{
+		return '20'.substr($enroll,6,2);
+	}
 	//Function which is being called first
 	public function index()
 	{
@@ -80,11 +84,11 @@ class Home extends CI_Controller
 		$d = $this->input->post();
 		$data= array(
 				'Enrollment' => $d['enroll'],
-				'Password'=> $this->hash_password($d['pass']),
+				'Password'=> $this->hash_password($d['password']),
 				'email'=>$d['email'],
 				'Class'=>$d['class'],
 				'Branch'=>$d['branch'],
-				'Year'=>$d['year'],
+				'Year'=>$this->getyear($d['enroll']),
 				'Name'=>$d['name'],
 				'institute'=>$d['institute']
 			);
@@ -226,7 +230,6 @@ class Home extends CI_Controller
 	public function network()
 	{
 		$data=$this->valid_user->getuserdata($this->session->userdata('enroll'));
-
 	}
 	public function loadmoreposts()
 	{

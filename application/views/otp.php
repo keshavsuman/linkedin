@@ -34,7 +34,7 @@
                 <div class="card-block">
                     <form class="form-horizontal" action="otpconfirmation" method="post" novalidate>
                         <fieldset class="form-group position-relative has-icon-left">
-                            <input type="text" class="form-control form-control-lg input-lg" id="user-email" placeholder="OTP" required>
+                            <input type="text" name="otp" class="form-control form-control-lg input-lg" id="user-email" placeholder="OTP" required>
                             <div class="form-control-position">
                                 <i class="icon-key2"></i>
                             </div>
