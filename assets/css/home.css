@@ -1,0 +1,296 @@
+body{
+  background-color: #0101;
+  margin:0;
+  padding:0;
+}
+html{
+  padding:0;
+  margin:0;
+}
+.section-container{
+  margin: 15vh 4vw;
+  display:flex;
+}
+.news-container{
+  margin-top: 5em;
+  min-height:85vh;
+  display: flex;
+}
+.date{
+float:right;
+}
+.upload-button
+{
+  border:none;
+  background-color: #0101;
+}
+.like{
+  float:left;
+}
+.share
+{
+  float:right;
+}
+.news-first-column
+{
+  background-color: white;
+  box-shadow: 0 0 5px grey;
+  margin-left: 5em;
+  max-height:60vh;
+  box-shadow: 0 0 2px grey;
+  width:25%;
+}
+.news-second-column
+{
+  background-color: white;
+  min-height:85vh;
+  margin:0 2.5em;
+  box-shadow: 0 0 2px grey;
+  width:60%;
+  padding:1em;
+}
+.first-column{
+  background-color: white;
+  margin-bottom:2rem;
+  box-shadow: 0 0 5px grey;
+  padding:0;
+  height:50vh;
+  width:25%;
+  position:static;
+}
+.header-nav{
+  color:white;
+  display:flex;
+  flex-direction:column;
+}
+.header-nav i{
+  text-align: center;
+  font-size: 1.2em;
+}
+.nav-link
+{
+  padding:0.1rem 0.425rem !important;
+  text-align: center;
+}
+.second-column{
+  background-color: white;
+  margin-bottom:2rem;
+  box-shadow: 0 0 5px grey;
+  padding:1em;
+  width:50%;
+  margin:0 1em;
+}
+.third-column{
+  background-color: white;
+  margin-bottom:2rem;
+  box-shadow: 0 0 5px grey;
+  padding:0;
+  width:25%;
+  height:80vh;
+}
+.carousel-item img{
+  height:30vh;
+}
+.post{
+  background-color: white;
+  margin-bottom:2rem;
+  padding:0;
+}
+.profilepic-container{
+  width:8%;
+  height:6vh;
+  margin:2.5%;
+}
+.profilepic-container img{
+  border-radius: 50%;
+  width: 100%;
+}
+.username-enrollemnt-container
+{
+  width:50%;
+}
+.username-enrollemnt-container h6 /*Enrollment number*/
+{
+margin:0;
+}
+.username-enrollemnt-container h5 /*Name*/
+{
+margin:0;
+margin-top:0.6em;
+}
+.post-pic{
+  margin-top:.5rem;
+  margin-bottom:.5rem;
+  width:100%;
+  height:50vh;
+}
+.post-user-detail{
+  width:100%;
+  height:10vh;
+  float:left;
+  display:flex;
+}
+.post-user-detail .three-dots{
+  position:absolute;
+  right:0;
+}
+.background-image{
+  width:100%;
+  height:15vh;
+}
+.profile-image{
+  border-radius: 50%;
+  width:5.5rem;
+  height:5.5rem;
+  position: relative;
+  left:35%;
+  top:-2.7rem;
+  box-shadow: 0 0 5px grey;
+}
+.profile-image-first-column{
+  border-radius: 50%;
+  width:25%;
+  height:20%;
+  box-shadow: 0 0 5px grey;
+}
+.uploads{
+  display: flex;
+}
+.uploads i{
+  margin:0.3em;
+font-size: xx-large;
+}
+.uploads input{
+  width:90%;
+  border: none;
+  border-bottom: 1px solid grey;
+  padding: 0.3em 1em;
+}
+.uploads input:active{
+  outline-style: hidden;
+}
+.upload-button{
+  background-color: #0101;
+  text-align: center;
+  display: block;
+  width:6em;
+  position:relative;
+  right:-80%;
+  padding:0.5em;
+  margin:0.5em;
+}
+.upload-button:hover{
+  background-color: white;
+}
+.first-column h5{
+  margin-top:-10%;
+  text-align: center;
+}
+.first-column p{
+  text-align: center;
+}
+.menu{
+  display:none;
+}
+.people-profile{
+  display: flex;
+  background-color: white;
+  border-bottom: 1px solid #0101;
+}
+.people-image img{
+  border-radius: 50%;
+  width: 4em;
+  margin:  1em;
+}
+.background-container img
+{
+    width:100%;
+    height:40vh;
+}
+.people-detail
+{
+  vertical-align: middle;
+  padding: 1.5em 0;
+}
+.people-detail h3{
+font-size: 1.2em;
+margin:0;
+color: black;
+}
+.profile-data img{
+  border-radius: 50%;
+  position: relative;
+  top:-5em;
+  left:2em;
+}
+.profile-data nav{
+  position:relative;
+  float: right;
+}
+.profile-data .name
+{
+  position: relative;
+  top:-3em;
+  left:1em;
+}
+.profile-data .description{
+  position:relative;
+  top:-5em;
+  left:1em;
+}
+.profile-container{
+  background-color: white;
+}
+@media screen and (max-width: 370px)
+{
+  .first-column{
+    display:none;
+  }
+  .third-column{
+    display:none;
+  }
+  .second-column{
+    margin:0;
+  }
+  .post-pic{
+    margin-top:.5rem;
+    margin-bottom:.5rem;
+    width:100%;
+    height:20vh;
+  }
+  .user{
+    display: block;
+    width:2%;
+    height:2%;
+  }
+}
+@media screen and (max-width: 430px)
+{
+  .first-column{
+    display:none;
+  }
+  .third-column{
+    display:none;
+  }
+  .second-column{
+    margin:0;
+  }
+  .post-pic{
+    margin-top:.5rem;
+    margin-bottom:.5rem;
+    width:100%;
+    height:35vh;
+  }
+  .profile-pic{
+    width:12%;
+    height:6vh;
+    border-radius: 50%;
+    margin:4%;
+  }
+  .post-user-detail h6{
+    left:23%;
+  }
+  .menu{
+    display:block;
+  }
+}

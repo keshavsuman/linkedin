@@ -1,0 +1,49 @@
+.post-img{
+  display: block;
+  margin :0 11em;
+}
+.request a{
+  margin:2em 8em;
+}
+.request .detail{
+  margin:0.5em 11em;
+}
+.request .detail img{
+  float:right;
+  width:4rem;
+  margin:0;
+  display: inline;
+  position: absolute;
+  top:0.1em;
+  right:0;
+  border-radius: 50%;
+  box-shadow: 0 0 5px grey;
+}
+.request{
+  border-bottom: 2px solid grey;
+  border-top: 2px solid grey;
+}
+.removerequest {
+  border-bottom: 1px solid grey;
+}
+.removerequest .detail img{
+  float:left;
+  width:4rem;
+  margin:0;
+  display: inline;
+  border-radius: 50%;
+  box-shadow: 0 0 5px grey;
+}
+.removerequest .detail {
+margin:0 2em;
+}
+.removerequest .detail h4{
+margin:0 4em;
+margin-top:0.1em;
+}
+.add-image{
+ font-size:6em;
+ color:#0101;
+ text-align:center;
+ margin-top:25%;
+}
