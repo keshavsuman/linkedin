@@ -11,7 +11,7 @@ class Valid_user extends CI_Model
   public function is_valid()
   {
 			$data=$this->input->post();
-      $success=$this->db->get_where('users',array('Enrollment'=>$data['enroll']))->result();
+      $success=$this->db->get_where('users',array('enrollment'=>$data['enroll']))->result();
 			if(count($success)==1)
 			 return	password_verify($data['pass'],$success[0]->Password);
       else
@@ -23,10 +23,10 @@ class Valid_user extends CI_Model
 		$result=$this->db->get_where('unconfirmed_signup',array('email'=>$email))->result_array();
 		if(count($result)>0)
 		{
-			$enroll= $result[0]['Enrollment'];
-			$qry="DELETE FROM unconfirmed_signup WHERE Enrollment='$enroll';";
+			$enroll= $result[0]['enrollment'];
+			$qry="DELETE FROM unconfirmed_signup WHERE enrollment='$enroll';";
 			$data= array(
-					'Enrollment' => $result[0]['Enrollment'],
+					'enrollment' => $result[0]['enrollment'],
 					'Password'=> $result[0]['Password'],
 					'email'=>$result[0]['email'],
 					'Class'=>$result[0]['Class'],

@@ -47,7 +47,7 @@
                 <div class="card-block">
                     <form class="form-horizontal form-simple" action="<?php echo base_url('admin/login');?>" method="post" novalidate>
                         <fieldset class="form-group position-relative has-icon-left mb-0">
-                            <input type="text" class="form-control form-control-lg input-lg" id="user-name" name="admin_id" placeholder="Admin_id" required>
+                            <input type="text" class="form-control form-control-lg input-lg" id="user-name" name="username" placeholder="Admin_id" required>
                             <div class="form-control-position">
                                 <i class="icon-head"></i>
                             </div>

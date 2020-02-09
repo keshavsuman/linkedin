@@ -57,12 +57,12 @@ class admin extends CI_Controller
     {
       $d=$this->input->post();
       $data=array(
-        'admin_id'=>$d['admin_id'],
+        'username'=>$d['username'],
         'password'=>$d['pass']
       );
       if($this->adminfunction->verifylogin($data))
       {
-        $this->session->set_userdata('admin_id',$data['admin_id']);
+        $this->session->set_userdata('admin_id',$data['username']);
         $this->session->set_userdata('is_login',True);
         $this->session->set_userdata('loginas','admin');
         redirect(base_url('admin'),'refresh');
@@ -127,7 +127,7 @@ class admin extends CI_Controller
     {
       $data=$this->input->post();
       $admin = array(
-        'admin_id' => $data['admin_id'],
+        'username' => $data['username'],
         'password' =>$this->hash_password($data['pass'])
       );
       if($this->adminfunction->addadmin($admin))

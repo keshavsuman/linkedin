@@ -5,7 +5,7 @@ class basicFunctionality extends CI_Model
 {
   public function recentTenUploads()
   {
-    return $this->db->query('SELECT * FROM uploads join users on (users.Enrollment=uploads.Enrollment) order by upload_id desc LIMIT 10')->result();
+    return $this->db->query('SELECT * FROM uploads join users on (users.user_id=uploads.user_id) order by upload_id desc LIMIT 10')->result();
   }
   public function get_news($news_id)
   {

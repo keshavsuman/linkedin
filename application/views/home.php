@@ -3,7 +3,7 @@
       redirect(base_url());
 ?>
 <!-- <img src="<?php //echo base_url('assets/images/background-light.png');?>"  class="col-lg-12" alt=""> -->
-<?php echo anchor("home/logout","logout"); ?>
+<?php //echo anchor("home/logout","logout"); ?>
 <section class="section-container">
       <div class="first-column">
           <img src="<?php echo base_url('assets/images/background.png');?>" alt="background-image" class="background-image">
@@ -20,7 +20,7 @@
           </div>
           <input type="submit" class="upload-button" value="Upload">
         <input type="file" name="userfile" style="display:none;">
-        <!-- <input type="submit" value="upload" class="btn btn-light"/> -->
+        <input type="submit" value="upload" class="btn btn-light"/>
         </form>
         <?php foreach($data as $d): ?>
           <div class="post">

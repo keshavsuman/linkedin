@@ -7,25 +7,9 @@ class Home extends CI_Controller
 	function __construct()
 	{
     parent:: __construct();
-		$this->load->Model('valid_user');
-		$this->load->Model('basicFunctionality');
+		$this->load->Model(array('basicFunctionality'));
 		$this->load->library('session');
 		$this->load->helper(array('url','string','form'));
-	}
-	//hashing function
-	private function hash_password($password)
-	{
-	   return password_hash($password, PASSWORD_BCRYPT);
-	}
-	//otp generation function
-	private function otp()
-  {
-        $otp = random_string('numeric', 6);
-        return $otp;
-	}
-	private function getyear($enroll)
-	{
-		return '20'.substr($enroll,6,2);
 	}
 	//Function which is being called first
 	public function index()
@@ -44,108 +28,10 @@ class Home extends CI_Controller
 		else
 			$this->load->view('login.php');
 	}
-	//sign up
-	public function signup()
-	{
-		$this->load->view('signup');
-	}
 	public function underconstruction()
 	{
-		// $this->load->view('elements/header');
+		$this->load->view('elements/header');
 		$this->load->view('under');
-	}
-	//login
-	public function login()
-	{
-		if(isset($_POST['enroll']) and isset($_POST['pass']))
-		{
-			$data=$this->input->post();
-			if($this->valid_user->is_valid($data)) 	//login Success
-			{
-				$this->load->library('session');
-				$this->session->set_userdata('enroll',$data['enroll']);
-				$this->session->set_userdata('is_login',True);
-				$this->session->set_userdata('loginas','user');
-				redirect(base_url('home'),'refresh');
-			}
-			else
-			{
-				redirect(base_url('home'),'refresh');		 //login Failed
-			}
-		}
-		else
-		{
-			$this->load->view('login');
-		}
-	}
-	//Logic for registering new user
-	public function registerUser()
-	{
-		$d = $this->input->post();
-		$data= array(
-				'Enrollment' => $d['enroll'],
-				'Password'=> $this->hash_password($d['password']),
-				'email'=>$d['email'],
-				'Class'=>$d['class'],
-				'Branch'=>$d['branch'],
-				'Year'=>$this->getyear($d['enroll']),
-				'Name'=>$d['name'],
-				'institute'=>$d['institute']
-			);
-			$this->session->set_userdata('email',$d['email']);
-		if($this->db->insert('unconfirmed_signup', $data))
-		{
-			if($this->sendmail($data['email']))
-			{
-			$this->load->view('otp');
-			}
-		}
-		else
-		{
-			echo "failed";
-		}
-	}
-	//logic to send mail for otp
-	public function sendMail($to)
-	{
-					$otp=$this->otp();
-					$this->session->set_userdata('otp',$otp);
-					$message = 'Your OTP is '.$otp;
-		      $this->load->library('email');
-		      $this->email->set_newline("\r\n");
-		      $this->email->from('acropolisgroups@gmail.com'); // change it to yours
-		      $this->email->to($to);// change it to yours
-		      $this->email->subject('Confirmation Email');
-		      $this->email->message($message);
-		      if($this->email->send())
-		     {
-					 return True;
-		     }
-		     else
-		    {
-		     show_error($this->email->print_debugger());
-			 }
-		}
-	//logic to check whether otp sent is correct or not
-	public function otpConfirmation()
-	{
-		$d = $this->input->post();
-		if($d['otp']==$this->session->userdata('otp'))
-		{
-			if($this->valid_user->confirm_signup($this->session->email))
-			{
-				redirect(base_url());
-			}
-		}
-		else
-		{
-			echo "otp not matched";
-		}
-	}
-	//logic for forget password
-	public function forget_password()
-	{
-		$this->load->view('forgetpassword',array('error'=>' '));
 	}
 	public function profile()
 	{
@@ -162,36 +48,6 @@ class Home extends CI_Controller
 		$content['allnews']=$this->basicFunctionality->get_news(0);
 		$this->load->view('elements/header');
 		$this->load->view('news',$content);
-
-	}
-	//Logic for password reset
-	public function resetpassword()
-	{
-		$data=$this->input->post();
-		if($this->valid_user->isexits($data))
-		{
-			$this->sendMail($data['email']);
-			$this->load->view('otpp.php');
-		}
-		else{
-			$this->load->view('forgetpassword',array('error'=>'There is no user with this credentials'));
-		}
-	}
-	public function passOtpConfirmation()
-	{
-		$d = $this->input->post();
-		if($d['otp']==$this->session->userdata('otp'))
-		{
-			$this->load->view('newpassword.php');
-		}
-		else
-		{
-			echo "otp not matched";
-		}
-	}
-	public function replacepassword()
-	{
-		// $this->valid_user->replacePassword();
 	}
 	public function like($upload_id)
 	{
@@ -213,11 +69,11 @@ class Home extends CI_Controller
 	// 	else
 	// 		return false;
 	// }
-	public function share()
+	public function not_found()
 	{
-		//logic for share
+		$this->load->view('elements/header');
+		$this->load->view('elements/notfound');
 	}
-	//logic for logout
 	public function logout()
 	{
 	    $user_data = $this->session->all_userdata();
@@ -226,16 +82,5 @@ class Home extends CI_Controller
 	        }
 		     $this->session->sess_destroy();
 	    redirect('home');
-	}
-	public function network()
-	{
-		$data=$this->valid_user->getuserdata($this->session->userdata('enroll'));
-	}
-	public function loadmoreposts()
-	{
-		if($this->request->post())
-		{
-			// $this->load->
-		}
 	}
 }

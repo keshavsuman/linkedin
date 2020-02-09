@@ -28,7 +28,7 @@
         <div class="col-lg-6">
           <div class="container">
             <div class="form-container">
-              <form class="form" action="<?php echo base_url('home/registerUser');?>" method="post" role="form">
+              <form class="form" action="<?php echo base_url('signup/registerUser');?>" method="post" role="form">
           <div class="form-group">
             <label for="Full Name">Full Name </label>
             <input type="text" name="name" placeholder="Full Name" class="form-control">
@@ -83,6 +83,4 @@
     <p class="lead"> <span class="all_right">All Rights Reserved</span> <span class="developed_by">Developed By Students of IT Department</span></p>
     </footer>
   </body>
-  <!-- <script src="<?php echo base_url('assets/js/core/libraries/bootstrap.min.js');?>" type="text/javascript"></script>
-  <script src="<?php echo base_url('assets/js/core/libraries/jquery.min.js');?>" type="text/javascript"></script> -->
 </html>

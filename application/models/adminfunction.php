@@ -13,7 +13,7 @@ class adminfunction extends CI_Model
   }
   public function verifylogin($data)
   {
-    $success=$this->db->get_where('admin',array('admin_id'=>$data['admin_id']))->result();
+    $success=$this->db->get_where('admin',array('username'=>$data['username']))->result();
     if(count($success)==1)
      return	password_verify($data['password'],$success[0]->password);
     else

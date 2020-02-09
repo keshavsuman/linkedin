@@ -45,7 +45,7 @@
             </div>
             <div class="card-body collapse in">
                 <div class="card-block">
-                    <form class="form-horizontal form-simple" action="<?php echo base_url('home/login');?>" method="post" novalidate>
+                    <form class="form-horizontal form-simple" action="<?php echo base_url('login/login');?>" method="post" novalidate>
                         <fieldset class="form-group position-relative has-icon-left mb-0">
                             <input type="text" class="form-control form-control-lg input-lg" id="user-name" placeholder="Your Username"  name="enroll" required>
                             <div class="form-control-position">
@@ -65,7 +65,7 @@
                                     <label for="remember-me"> Remember Me</label>
                                 </fieldset>
                             </div>
-                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="<?php echo base_url('home/forget_password');?>" class="card-link">Forgot Password?</a></div>
+                            <div class="col-md-6 col-xs-12 text-xs-center text-md-right"><a href="<?php echo base_url('signup/forget_password');?>" class="card-link">Forgot Password?</a></div>
                         </fieldset>
                         <button type="submit" class="btn btn-primary btn-lg btn-block"><i class="icon-unlock2"></i> Login</button>
                     </form>
@@ -73,7 +73,7 @@
             </div>
             <div class="card-footer">
                 <div class="">
-                    <p class="float-sm-right text-xs-center m-0"><a href="home/signup" class="card-link">Sign up</a></p>
+                    <p class="float-sm-right text-xs-center m-0"><a href="<?php echo base_url('signup/')?>" class="card-link">Sign up</a></p>
                 </div>
             </div>
         </div>
